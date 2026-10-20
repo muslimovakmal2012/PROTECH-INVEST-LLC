@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>PROTECH INVEST — сварка, механомонтаж, изоляция трубопроводов</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Onest:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#E8EEF0;--ink:#10303B;--muted:#4A6671;--line:#C3D0D5;--panel:#F6F9FA;--fill:#F0BE2B;
+  --wool:#F0BE2B;--cold:#3A8FD6;--weld:#FF7A3D;--steel:#8A99A1;--foil:#C9D3D7;--bore:#FFE3D2;--boreC:#CFE6F8;
+  color-scheme:light;box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){--bg:#0F2229;--ink:#E6EEF0;--muted:#9DB3BB;--line:#25414B;--panel:#163039;--fill:#7A5F0E;--bore:#3A2418;--boreC:#17384F;color-scheme:dark}
+}
+:root[data-theme="dark"]{--bg:#0F2229;--ink:#E6EEF0;--muted:#9DB3BB;--line:#25414B;--panel:#163039;--fill:#7A5F0E;--bore:#3A2418;--boreC:#17384F;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.55 Onest,system-ui,"Segoe UI",Arial,sans-serif;overflow-x:hidden}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--cold);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+h1,h2,.brand,.big-phone{font-family:"Russo One",Impact,"Arial Black",sans-serif;font-weight:400}
+header{display:flex;align-items:center;justify-content:space-between;padding:18px 0}
+.brand{font-size:20px;text-decoration:none}.brand span{color:var(--muted)}
+.call{background:var(--ink);color:var(--bg);text-decoration:none;font-weight:600;padding:10px 18px;border-radius:999px;white-space:nowrap}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-block;text-decoration:none;font-weight:600;padding:13px 22px;border-radius:999px;border:2px solid var(--ink)}
+.btn.solid{background:var(--ink);color:var(--bg)}
+
+/* hero */
+.hero{padding:30px 0 0}
+h1{font-size:clamp(44px,11vw,124px);line-height:1;margin:0 0 22px}
+.ln{display:block;overflow:hidden;padding-bottom:.06em}
+.ln>span{display:block;transform:translateY(108%);animation:up .9s cubic-bezier(.2,.8,.2,1) both}
+.ln:nth-child(1)>span{animation-delay:.1s}.ln:nth-child(2)>span{animation-delay:.25s}.ln:nth-child(3)>span{animation-delay:.4s}
+@keyframes up{to{transform:none}}
+.lead{max-width:30em;color:var(--muted);margin:0 0 24px;font-size:19px;opacity:0;animation:fade .8s ease .9s forwards}
+.hero .btns{opacity:0;animation:fade .8s ease 1.1s forwards}
+@keyframes fade{to{opacity:1}}
+.scene{margin-top:10px}
+.scene svg{display:block;width:100%;height:auto}
+.hl{animation:jl 1.1s cubic-bezier(.3,.9,.2,1) .5s both}.hr{animation:jr 1.1s cubic-bezier(.3,.9,.2,1) .5s both}
+@keyframes jl{from{transform:translateX(-90px)}}@keyframes jr{from{transform:translateX(90px)}}
+.bd{opacity:0;animation:heat 5s ease-out 1.55s both}
+@keyframes heat{0%{opacity:0;fill:#fff}8%{opacity:1;fill:#FFF1C9}35%{fill:#FF7A3D}100%{opacity:1;fill:#6E3419}}
+.fl{opacity:0;transform-box:view-box;transform-origin:500px 110px;animation:flash 1.1s ease-out 1.55s both}
+@keyframes flash{0%{opacity:0;transform:scale(.2)}25%{opacity:1;transform:scale(1)}100%{opacity:0;transform:scale(1.35)}}
+.sp{stroke:var(--weld);stroke-width:3;stroke-linecap:round;opacity:0;transform-box:view-box;transform-origin:500px 110px;animation:spark .8s ease-out 1.55s both}
+@keyframes spark{0%{opacity:1;transform:rotate(var(--a)) translateX(4px)}100%{opacity:0;transform:rotate(var(--a)) translateX(120px)}}
+
+/* story */
+.story{height:560vh;background:var(--panel);border-top:2px solid var(--ink);margin-top:34px}
+.stage{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center}
+.st{display:grid;grid-template-columns:.85fr 1.15fr;gap:16px;align-items:center;width:100%}
+.pills{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
+.pill{font:600 13px/1 Onest,sans-serif;padding:9px 12px;border:2px solid var(--line);border-radius:999px;color:var(--ink);cursor:pointer;
+  background:linear-gradient(90deg,var(--fill) calc(var(--f,0)*100%),transparent 0)}
+.pill.on{border-color:var(--ink)}
+.steps{display:grid}
+.steps article{grid-area:1/1;opacity:0;transform:translateY(16px);transition:opacity .4s,transform .4s;pointer-events:none}
+.steps article.on{opacity:1;transform:none;pointer-events:auto}
+.steps h2{font-size:clamp(28px,3.8vw,46px);line-height:1.08;margin:0 0 14px}
+.steps p{margin:0 0 16px;max-width:26em;color:var(--muted)}
+.modes{display:flex;gap:10px;margin:0 0 14px}
+.mode{font:600 15px/1 Onest,sans-serif;border:2px solid var(--ink);background:transparent;color:var(--ink);padding:11px 16px;border-radius:999px;cursor:pointer}
+.mode[aria-pressed="true"]{background:var(--ink);color:var(--bg)}
+.sv{width:100%;height:auto;max-height:86svh}
+.sv .d{stroke-dasharray:1;stroke-dashoffset:1;fill:none}
+.sv .ink{stroke:var(--ink);stroke-width:2}
+.sv .sc{stroke:var(--muted);stroke-width:3}
+.sv .ins{stroke:url(#wool)}.sv[data-mode="cold"] .ins{stroke:url(#foam)}
+.sv #bore{fill:var(--bore);opacity:0;transition:fill .3s}.sv[data-mode="cold"] #bore{fill:var(--boreC)}
+.sv .lab{opacity:0}.sv .lab text{font:600 20px Onest,sans-serif;fill:var(--ink)}.sv .lab path{stroke:var(--ink);stroke-width:1.6;fill:none}.sv .lab circle{fill:var(--ink)}
+.sv .spk{stroke:var(--weld);stroke-width:3;stroke-linecap:round}
+
+/* services */
+.services{padding:70px 0 60px}
+h2.t{font-size:clamp(28px,4vw,46px);line-height:1.1;margin:0 0 28px}
+.rows{display:grid;grid-template-columns:1fr 1fr;gap:0 48px;margin:0;padding:0;list-style:none;align-items:start}
+.rows li{position:relative}
+.rows li::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:var(--ink);transform:scaleX(0);transform-origin:left;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.rows li.in::before{transform:none}
+.row{display:grid;grid-template-columns:44px 1fr 24px;gap:16px;align-items:center;width:100%;padding:22px 0;background:none;border:0;color:var(--ink);text-align:left;font:inherit;cursor:pointer}
+.sw{width:44px;height:44px;border-radius:50% 50% 50% 8px;border:2px solid var(--ink);transform:scale(0);transition:transform .6s cubic-bezier(.3,1.6,.5,1) .15s}
+li.in .sw{transform:none}
+.row b{display:block;font-size:20px;font-weight:600}.row small{color:var(--muted);font-size:15px}
+.plus{position:relative;width:20px;height:20px}
+.plus::before,.plus::after{content:"";position:absolute;background:var(--ink);left:0;top:9px;width:20px;height:2px;transition:transform .3s}
+.plus::after{transform:rotate(90deg)}.row[aria-expanded="true"] .plus::after{transform:none}
+.more{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s ease}
+.more>div{overflow:hidden}.more p{margin:0 0 22px 60px;color:var(--muted);font-size:16px}
+.row[aria-expanded="true"]+.more{grid-template-rows:1fr}
+
+/* contact */
+.contact{background:var(--weld);color:#10303B;padding:64px 0}
+.contact h2{font-size:clamp(28px,4vw,46px);line-height:1.1;margin:0 0 18px}
+.big-phone{display:inline-block;font-size:clamp(30px,7.2vw,76px);line-height:1.05;text-decoration:none;border-bottom:4px solid #10303B;margin-bottom:22px}
+.contact p{margin:0 0 20px;max-width:32em;font-size:18px}
+.contact .btn{border-color:#10303B;color:#10303B}.contact .btn.solid{background:#10303B;color:#fff}
+.contact :focus-visible{outline-color:#10303B}
+footer{padding:26px 0;color:var(--muted);font-size:14px}
+
+@media (max-width:820px){
+  .st{grid-template-columns:1fr;gap:8px}
+  .sv{order:-1;max-height:44svh}
+  .pills{margin-bottom:14px}.pill{font-size:12px;padding:7px 10px}
+  .steps p{margin-bottom:12px}
+  .rows{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  .ln>span{transform:none;animation:none}.lead,.hero .btns{opacity:1;animation:none}
+  .hl,.hr{animation:none}.fl,.sp{display:none}.bd{animation:none;opacity:1;fill:#6E3419}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a class="brand" href="#top">PROTECH <span>INVEST</span></a>
+    <a class="call" href="tel:+998977292522">Позвонить</a>
+  </header>
+  <main id="top">
+    <section class="hero">
+      <h1><span class="ln"><span>Варим.</span></span><span class="ln"><span>Монтируем.</span></span><span class="ln"><span>Изолируем.</span></span></h1>
+      <p class="lead">PROTECH INVEST делает трубопроводы под ключ: собираем, варим, закрываем изоляцией. Листайте вниз и посмотрите, как растёт труба.</p>
+      <div class="btns"><a class="btn solid" href="tel:+998977292522">Позвонить</a><a class="btn" href="#story">Как мы работаем</a></div>
+    </section>
+    <div class="scene" aria-hidden="true">
+      <svg viewBox="0 0 1000 220">
+        <defs>
+          <linearGradient id="cyl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#E4EBEE"/><stop offset=".35" stop-color="#9FAEB6"/><stop offset=".7" stop-color="#6F808A"/><stop offset="1" stop-color="#3F505A"/></linearGradient>
+          <radialGradient id="fl"><stop offset="0" stop-color="#fff"/><stop offset=".3" stop-color="#FFD27A"/><stop offset="1" stop-color="#FF7A3D" stop-opacity="0"/></radialGradient>
+        </defs>
+        <ellipse cx="500" cy="190" rx="470" ry="12" fill="#10303B" opacity=".15"/>
+        <g class="hl"><rect x="-10" y="60" width="510" height="100" fill="url(#cyl)"/><rect x="466" y="54" width="34" height="112" rx="5" fill="url(#cyl)"/></g>
+        <g class="hr"><rect x="500" y="60" width="510" height="100" fill="url(#cyl)"/><rect x="500" y="54" width="34" height="112" rx="5" fill="url(#cyl)"/></g>
+        <rect class="bd" x="491" y="52" width="18" height="116" rx="6"/>
+        <circle class="fl" cx="500" cy="110" r="150" fill="url(#fl)"/>
+        <g>
+          <line class="sp" x1="500" y1="110" x2="525" y2="110" style="--a:-80deg"/><line class="sp" x1="500" y1="110" x2="530" y2="110" style="--a:-55deg"/>
+          <line class="sp" x1="500" y1="110" x2="522" y2="110" style="--a:-30deg"/><line class="sp" x1="500" y1="110" x2="528" y2="110" style="--a:-8deg"/>
+          <line class="sp" x1="500" y1="110" x2="525" y2="110" style="--a:15deg"/><line class="sp" x1="500" y1="110" x2="520" y2="110" style="--a:40deg"/>
+          <line class="sp" x1="500" y1="110" x2="530" y2="110" style="--a:65deg"/><line class="sp" x1="500" y1="110" x2="525" y2="110" style="--a:100deg"/>
+          <line class="sp" x1="500" y1="110" x2="522" y2="110" style="--a:130deg"/><line class="sp" x1="500" y1="110" x2="528" y2="110" style="--a:160deg"/>
+          <line class="sp" x1="500" y1="110" x2="525" y2="110" style="--a:190deg"/><line class="sp" x1="500" y1="110" x2="530" y2="110" style="--a:230deg"/>
+        </g>
+      </svg>
+    </div>
+  </main>
+</div>
+
+<section class="story" id="story">
+  <div class="stage"><div class="wrap st">
+    <div class="left">
+      <div class="pills" role="group" aria-label="Этапы работы">
+        <button class="pill">Механомонтаж</button><button class="pill">Сварка</button><button class="pill">Леса</button><button class="pill">Изоляция</button><button class="pill">Оболочка</button>
+      </div>
+      <div class="steps" aria-live="polite">
+        <article><h2>Собираем линию</h2><p>Ставим опоры, подвешиваем и стыкуем трубы, монтируем узлы и оборудование.</p></article>
+        <article><h2>Варим стыки</h2><p>Сварка трубопроводов и металлоконструкций, ремонт швов.</p></article>
+        <article><h2>Ставим леса</h2><p>Леса нужны, чтобы работать на высоте и в тесных местах удобно и безопасно.</p></article>
+        <article><h2>Одеваем в изоляцию</h2>
+          <div class="modes" role="group" aria-label="Что в трубе"><button class="mode" data-m="hot" aria-pressed="true">Горячее</button><button class="mode" data-m="cold" aria-pressed="false">Холодное</button></div>
+          <p id="cap"></p></article>
+        <article><h2>Закрываем и сдаём</h2><p>Защитная оболочка, крепёж, леса снимаем. Труба готова к работе.</p><a class="btn solid" href="#contact">Обсудить объект</a></article>
+      </div>
+    </div>
+    <svg class="sv" id="sv" data-mode="hot" viewBox="0 0 660 480" role="img" aria-label="Разрез трубы, которая собирается по этапам: сталь, сварной шов, леса, изоляция, оболочка">
+      <defs>
+        <pattern id="wool" width="14" height="14" patternUnits="userSpaceOnUse"><rect width="14" height="14" fill="#F0BE2B"/><path d="M1 4L8 2M6 11L13 9M0 13L5 12" stroke="#B88A0C" stroke-width="1.6" stroke-linecap="round"/></pattern>
+        <pattern id="foam" width="12" height="12" patternUnits="userSpaceOnUse"><rect width="12" height="12" fill="#3A8FD6"/><circle cx="3" cy="3" r="1.8" fill="#8CC4F0"/><circle cx="9" cy="9" r="1.8" fill="#8CC4F0"/></pattern>
+      </defs>
+      <g id="scg">
+        <path class="sc d" pathLength="1" d="M20 30H460V450H20Z"/><path class="sc d" pathLength="1" d="M20 430L460 50"/><path class="sc d" pathLength="1" d="M20 50L460 430"/>
+        <path class="sc d" pathLength="1" d="M20 430H460" style="stroke-width:8"/><path class="sc d" pathLength="1" d="M20 50H460"/>
+      </g>
+      <path class="d" pathLength="1" id="ax1" d="M30 240H450" stroke="var(--muted)" stroke-dasharray="1" style="stroke-width:1.2"/>
+      <path class="d" pathLength="1" id="ax2" d="M240 20V460" stroke="var(--muted)" style="stroke-width:1.2"/>
+      <circle id="bore" cx="240" cy="240" r="73"/>
+      <circle class="d" pathLength="1" id="wall" cx="240" cy="240" r="88" transform="rotate(-90 240 240)" stroke="#8A99A1" style="stroke-width:30"/>
+      <circle class="d ink" pathLength="1" id="e1" cx="240" cy="240" r="73" transform="rotate(-90 240 240)"/>
+      <circle class="d ink" pathLength="1" id="e2" cx="240" cy="240" r="103" transform="rotate(-90 240 240)"/>
+      <circle class="d" pathLength="1" id="bead" cx="240" cy="240" r="88" transform="rotate(-90 240 240)" stroke="#FF7A3D" style="stroke-width:7"/>
+      <circle class="d ins" pathLength="1" id="ins" cx="240" cy="240" r="130" transform="rotate(-90 240 240)" style="stroke-width:54"/>
+      <circle class="d ink" pathLength="1" id="e3" cx="240" cy="240" r="157" transform="rotate(-90 240 240)"/>
+      <circle class="d" pathLength="1" id="foil" cx="240" cy="240" r="162" transform="rotate(-90 240 240)" stroke="#C9D3D7" style="stroke-width:10"/>
+      <circle class="d ink" pathLength="1" id="e4" cx="240" cy="240" r="167" transform="rotate(-90 240 240)"/>
+      <g id="dots" fill="#10303B" opacity="0"></g>
+      <g id="sp" opacity="0"><circle r="11" fill="#FF7A3D" opacity=".55"/><circle r="4" fill="#fff"/></g>
+      <g class="lab"><circle cx="307" cy="183" r="4"/><path d="M307 183H474"/><text x="484" y="189">сталь</text></g>
+      <g class="lab"><circle cx="328" cy="240" r="4"/><path d="M328 240H474"/><text x="484" y="246">сварной шов</text></g>
+      <g class="lab"><path d="M460 120H474"/><circle cx="460" cy="120" r="4"/><text x="484" y="126">леса</text></g>
+      <g class="lab"><circle cx="355" cy="300" r="4"/><path d="M355 300H474"/><text x="484" y="306">изоляция</text></g>
+      <g class="lab"><circle cx="349" cy="360" r="4"/><path d="M349 360H474"/><text x="484" y="366">оболочка</text></g>
+    </svg>
+  </div></div>
+</section>
+
+<section class="services">
+  <div class="wrap">
+    <h2 class="t">Что делаем</h2>
+    <ul class="rows" id="rows"></ul>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Расскажите про объект</h2>
+    <a class="big-phone" href="tel:+998977292522">+998 97 729 25 22</a>
+    <p>Позвоните или напишите: обсудим объём работ и сроки.</p>
+    <div class="btns"><a class="btn solid" href="tel:+998977292522">Позвонить</a><a class="btn" href="https://wa.me/998977292522">Написать в WhatsApp</a></div>
+  </div>
+</section>
+<div class="wrap"><footer>© 2026 PROTECH INVEST LLC</footer></div>
+
+<script>
+(function(){
+var $=function(s){return document.querySelector(s)},$$=function(s){return Array.prototype.slice.call(document.querySelectorAll(s))},
+cl=function(x){return Math.max(0,Math.min(1,x))},NS='http://www.w3.org/2000/svg',g=function(i){return document.getElementById(i)};
+
+/* services */
+var S=[['Сварочные работы','Трубопроводы и металлоконструкции','Стыки трубопроводов, каркасы и опоры из металла, ремонт и подварка швов.','var(--steel)'],
+['Механомонтаж','Оборудование, трубы, опоры','Установка оборудования, подвеска и стыковка труб, монтаж опор и узлов обвязки.','var(--ink)'],
+['Монтаж лесов','Для работ на высоте','Сборка и разборка лесов под монтаж, изоляцию и ремонт, в том числе в тесных местах.','var(--foil)'],
+['Изоляция трубопроводов','Утепление и защита трасс','Укладка изоляции на трассы, защитная оболочка, изоляция отводов, тройников и арматуры.','var(--foil)'],
+['Теплоизоляция','Держим тепло внутри','Паропроводы, горячая вода, отопление. Минеральная вата и оболочка из оцинковки или алюминия.','var(--wool)'],
+['Холодная изоляция','Защита от конденсата','Холодная вода, хладагент, кондиционирование. Изоляция с закрытыми порами и герметичные стыки.','var(--cold)']];
+var ul=$('#rows');
+S.forEach(function(s,i){
+  var li=document.createElement('li');li.style.transitionDelay=(i%2*.1)+'s';
+  li.innerHTML='<button class="row" aria-expanded="false" aria-controls="m'+i+'"><span class="sw" style="background:'+s[3]+'"></span><span><b>'+s[0]+'</b><small>'+s[1]+'</small></span><span class="plus"></span></button><div class="more" id="m'+i+'"><div><p>'+s[2]+'</p></div></div>';
+  li.querySelector('.row').addEventListener('click',function(e){var b=e.currentTarget;b.setAttribute('aria-expanded',b.getAttribute('aria-expanded')==='true'?'false':'true')});
+  ul.appendChild(li);
+});
+var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.25});
+$$('#rows li').forEach(function(li,i){li.style.setProperty('--i',i);io.observe(li)});
+
+/* pipe story */
+var dots=g('dots'),k,c;
+for(k=0;k<12;k++){var a=k*Math.PI/6;c=document.createElementNS(NS,'circle');c.setAttribute('cx',240+162*Math.cos(a));c.setAttribute('cy',240+162*Math.sin(a));c.setAttribute('r',2.8);dots.appendChild(c)}
+var sp=g('sp'),sl=[];
+for(k=0;k<8;k++){var l=document.createElementNS(NS,'line');l.setAttribute('class','spk');sp.appendChild(l);sl.push(l)}
+var story=g('story'),pills=$$('.pill'),steps=$$('.steps article'),labs=$$('.lab'),sc=$$('.sc'),
+dd=function(e,t){e.style.strokeDashoffset=1-t};
+function upd(){
+  var r=story.getBoundingClientRect(),p=cl(-r.top/(story.offsetHeight-innerHeight));
+  var t=[0,1,2,3,4].map(function(i){return cl(p*5-i+(i?0:.1))});
+  ['ax1','ax2','wall','e1','e2'].forEach(function(id){dd(g(id),t[0])});
+  g('bore').style.opacity=t[0];
+  dd(g('bead'),t[1]);
+  if(t[1]>0&&t[1]<1){
+    var an=-Math.PI/2+Math.PI*2*t[1];
+    sp.setAttribute('transform','translate('+(240+88*Math.cos(an))+' '+(240+88*Math.sin(an))+')');
+    sp.style.opacity=1;
+    sl.forEach(function(ln,i){var q=an+(i-3.5)*.4,len=10+((p*90*(i+3))%1)*32;ln.setAttribute('x2',Math.cos(q)*len);ln.setAttribute('y2',Math.sin(q)*len)});
+  }else sp.style.opacity=0;
+  sc.forEach(function(e,i){dd(e,cl(t[2]*1.7-i*.17))});
+  g('scg').style.opacity=1-.85*t[4];
+  dd(g('ins'),t[3]);dd(g('e3'),t[3]);
+  dd(g('foil'),t[4]);dd(g('e4'),t[4]);dots.style.opacity=cl((t[4]-.4)*2.5);
+  labs.forEach(function(lb,i){
+    var v=[t[0],t[1],t[2],t[3],t[4]];var order=[0,1,3,4,2];
+    var x=cl((v[order[i]]-.55)*4);lb.style.opacity=i===4?x*(1-t[4]):x;
+  });
+  var act=Math.min(4,Math.floor(p*5));
+  steps.forEach(function(s,i){s.classList.toggle('on',i===act)});
+  pills.forEach(function(b,i){b.classList.toggle('on',i===act);b.style.setProperty('--f',t[i])});
+}
+addEventListener('scroll',upd,{passive:true});addEventListener('resize',upd);upd();
+pills.forEach(function(b,i){b.addEventListener('click',function(){
+  var top=story.getBoundingClientRect().top+scrollY;
+  scrollTo({top:top+(i+.95)/5*(story.offsetHeight-innerHeight),behavior:'smooth'});
+})});
+
+/* hot / cold */
+var txt={hot:'Горячая труба: пар, горячая вода. Минеральная вата держит тепло внутри, оболочка защищает от воды и ударов.',
+cold:'Холодная труба: хладагент, холодная вода. Изоляция с закрытыми порами не пускает влагу, поэтому на трубе нет конденсата.'};
+var modes=$$('.mode');
+function setMode(m){g('sv').setAttribute('data-mode',m);g('cap').textContent=txt[m];modes.forEach(function(b){b.setAttribute('aria-pressed',b.dataset.m===m?'true':'false')})}
+modes.forEach(function(b){b.addEventListener('click',function(){setMode(b.dataset.m)})});
+setMode('hot');
+})();
+</script>
+</body>
+</html>
